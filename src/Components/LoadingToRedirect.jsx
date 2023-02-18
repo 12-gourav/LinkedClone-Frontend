@@ -8,7 +8,7 @@ const LoadingToRedirect = () => {
     const interval = setInterval(() => {
       setCount((c) => --c);
     }, 1000);
-    count === 0 && Navigate("/");
+    count === 0 && Navigate("/login");
 
     return () => clearInterval(interval);
   }, [count]);
