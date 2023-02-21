@@ -9,7 +9,7 @@ const Search = () => {
   const getResult = async () => {
     try {
       const data = await axios.post(
-        "http://localhost:5000/api/v1/search",
+        "https://linkedin-54mx.onrender.com/api/v1/search",
         {
           query,
         },

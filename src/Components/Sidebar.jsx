@@ -22,13 +22,13 @@ const Sidebar = () => {
         </span>
         <span className="title">News</span>
       </Link>
-      <Link className="box">
+      <Link to="/messages" className="box">
         <span className="icon">
           <i className="bx bx-message-rounded-dots"></i>
         </span>
         <span className="title">Messages</span>
       </Link>
-      <Link className="box">
+      <Link to="/notification" className="box">
         <span className="icon">
           <i className="bx bx-bell"></i>
         </span>

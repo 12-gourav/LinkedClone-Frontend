@@ -21,7 +21,7 @@ const Verify = () => {
       }
       setLoading(true);
       const data = await axios.post(
-        "http://localhost:5000/api/v1/verify",
+        "https://linkedin-54mx.onrender.com/api/v1/verify",
         { otp },
         {
           headers: { token: token },

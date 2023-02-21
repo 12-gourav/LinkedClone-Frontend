@@ -1,42 +1,32 @@
 import React, { useEffect, useState } from "react";
 import img from "../assets/logo.png";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import img1 from "../assets/a.png";
 import img2 from "../assets/yug.png";
-import { useDispatch, useSelector } from "react-redux";
-import axios from "axios";
-const Profile = () => {
+import { useSelector } from "react-redux";
+import ReactQuill from "react-quill";
+
+const DisplayCompany = () => {
+  const { company } = useSelector((state) => state.user);
   const { user } = useSelector((state) => state.user);
-  const [state, setState] = useState();
-  const dispatch = useDispatch();
-  const Navigate = useNavigate();
-  const id = user?._id;
-  const getCompany = async () => {
-    try {
-      const res = await axios.post(
-        "https://linkedin-54mx.onrender.com/api/v1/get/company",
-        {
-          id,
-        }
-      );
-
-      if (res.data.data) {
-        setState(res.data.data);
-        console.log(res.data.data);
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
-  useEffect(() => {
-    getCompany();
-  }, []);
-
-  const handleCompany = (data) => {
-    dispatch({ type: "company", payload: data });
-    Navigate("/company");
-  };
-
+  const {
+    banner,
+    city,
+    contact1,
+    contact2,
+    tag,
+    country,
+    discreption,
+    email,
+    id,
+    logo,
+    name,
+    pincode,
+    size,
+    website,
+    address,
+  } = company;
+  console.log(company);
   return (
     <section className="profile">
       <div className="containers">
@@ -88,48 +78,44 @@ const Profile = () => {
           <div className="left">
             <div className="pcard">
               <div className="banner">
-                <img
-                  src={user?.banner?.url ? user?.banner?.url : img1}
-                  alt="img"
-                />
+                <img src={banner.url} alt="img" />
               </div>
               <div className="box">
                 <div className="circle">
-                  <img
-                    src={user?.avatar?.url ? user?.avatar?.url : img2}
-                    alt="profile pic"
-                  />
+                  <img src={logo.url} alt="profile pic" />
                 </div>
                 <div className="deco">
                   <h2>
-                    {user?.name ? user?.name : "Dummmy Name"}
+                    {name}
                     <span className="updatebtn">
-                      <Link to="/user">
-                        {" "}
-                        <i className="bx bxs-pencil"></i>
-                      </Link>
+                      {/* <Link to="/update/company"> */}{" "}
+                      <i className="bx bxs-pencil"></i>
+                      {/* </Link> */}
                     </span>
                   </h2>
                   <p className="tag">
-                    {user?.tag
-                      ? user?.tag
-                      : "Complete your Profile make some cool tags"}
+                    {tag ? tag : "Complete your Profile make some cool tags"}
                   </p>
                   <p className="about">
-                    {user?.about
-                      ? user?.about
-                      : " Startshorts is hiring an Node js , React Native and Python Developer at its Work from Home. The position is full-time .We prefer local candidates, but anyone with the right skills and attitude is welcome to apply."}
+                    {discreption ? (
+                      <ReactQuill
+                        value={discreption}
+                        readOnly={true}
+                        theme={"bubble"}
+                      />
+                    ) : (
+                      " Startshorts is hiring an Node js , React Native and Python Developer at its Work from Home. The position is full-time .We prefer local candidates, but anyone with the right skills and attitude is welcome to apply."
+                    )}
                   </p>
                   <p className="address">
-                    {user?.address
-                      ? user?.address
+                    {address
+                      ? address + " , " + city + ", " + country + ", " + pincode
                       : "  Raebareli, Uttar Pradesh, India"}
                     <span> (Address)</span>{" "}
                   </p>
                   <p className="address">
-                    <a href={user?.Website ? user?.Website : ""}>
-                      {user?.Website ? user?.Website : ""}{" "}
-                      <span> (Website)</span>{" "}
+                    <a href={website ? website : ""}>
+                      {website ? website : ""} <span> (Website)</span>{" "}
                     </a>
                   </p>
                   <p className="views">
@@ -150,9 +136,9 @@ const Profile = () => {
                     <span>
                       <i className="bx bx-user-voice"></i>
                     </span>{" "}
-                    Profile Views +80
+                    Company Views +80
                   </h4>
-                  <p>Discover who view Your profile</p>
+                  <p>Discover who view Your Company</p>
                 </div>
                 <div className="dc">
                   <h4>
@@ -170,7 +156,7 @@ const Profile = () => {
                     </span>
                     Ranking +100
                   </h4>
-                  <p> Your profilev Ranking Score</p>
+                  <p> Your Company Ranking Score</p>
                 </div>
               </div>
             </div>
@@ -233,10 +219,10 @@ const Profile = () => {
               </div>
             </div>
             <div className="exp">
-              <h3>Experiance & Education</h3>
+              <h3>Company Info</h3>
               <span className="fo">Your Update Info</span>
               <div className="data">
-                <h4>Current Role</h4>
+                <h4>{name}</h4>
                 <p
                   className="ppp"
                   style={{
@@ -246,18 +232,34 @@ const Profile = () => {
                     marginTop: "0.5rem",
                   }}
                 >
-                  "{user?.position ? user?.position : "required position"}"
+                  "{tag ? tag : "required position"}"
                 </p>
                 <p className="ppp">
-                  {user?.Experience
-                    ? user?.Experience
-                    : "As CTO in startsshorts"}
+                  {discreption ? (
+                    <ReactQuill
+                      value={discreption}
+                      readOnly={true}
+                      theme={"bubble"}
+                    />
+                  ) : (
+                    "As CTO in startsshorts"
+                  )}
                 </p>
               </div>
               <div className="data">
-                <h4>Highest Qalifications</h4>
+                <h4>Contact Details</h4>
+                <br></br>
                 <p className="ppp">
-                  {user?.Education ? user?.Education : "As CTO in startsshorts"}
+                  <b>Contact No :- </b>
+                  {contact1 ? contact1 : "As CTO in startsshorts"}
+                </p>
+                <p className="ppp">
+                  <b>Official Mail :- </b>
+                  {email ? email : "As CTO in startsshorts"}
+                </p>
+                <p className="ppp">
+                  <b>Contact No 2 :- </b>
+                  {contact2 ? contact2 : "As CTO in startsshorts"}
                 </p>
               </div>
               <div className="data">
@@ -302,19 +304,13 @@ const Profile = () => {
             </div>
             <div className="companys">
               <h3>Your Company</h3>
-              {state?.map((d, index) => (
-                <div
-                  className="vcard"
-                  key={index}
-                  onClick={() => handleCompany(d)}
-                >
-                  <img src={d.logo.url} alt="img" />
-                  <div>
-                    <h4>{d.name}</h4>
-                    <p>{d.tag}</p>
-                  </div>
+              <div className="vcard">
+                <img src={img1} alt="img" />
+                <div>
+                  <h4>Gaurav bajpai</h4>
+                  <p>#tages game of thrones</p>
                 </div>
-              ))}
+              </div>
             </div>
           </div>
         </div>
@@ -323,4 +319,4 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+export default DisplayCompany;

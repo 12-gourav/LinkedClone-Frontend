@@ -103,15 +103,15 @@ const HomeSet = () => {
             <Link className="pl" to="/createcompany">
               <i className="bx bx-globe"></i> Create Company page
             </Link>
-            <Link className="pl" to="/">
+            <Link to="/messages" className="pl">
               <i className="bx bx-message-rounded-dots"></i>
               Messages
             </Link>
-            <Link className="pl" to="/">
+            <Link className="pl">
               <i className="bx bx-cloud-download"></i>
               saved Posts
             </Link>
-            <Link to="/" className="pl">
+            <Link to="/notification" className="pl">
               <i className="bx bx-bell"></i>
               Notifications
             </Link>
@@ -145,7 +145,7 @@ const HomeSet = () => {
         <Link to="/mobnav" className="pnav">
           <i className="bx bxs-plus-circle"></i>
         </Link>
-        <Link to="/" className="bnav">
+        <Link to="/notification" className="bnav">
           <i className="bx bxs-buildings"></i>
         </Link>
         <Link to="/news" className="bnav">

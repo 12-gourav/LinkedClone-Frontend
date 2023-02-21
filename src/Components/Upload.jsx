@@ -35,7 +35,7 @@ const Upload = () => {
       myForm.append("id", user?._id);
 
       const res = await axios.post(
-        "http://localhost:5000/api/v1/post",
+        "https://linkedin-54mx.onrender.com/api/v1/post",
         myForm,
         {
           "Content-Type": "multipart/form-data",
@@ -55,7 +55,7 @@ const Upload = () => {
       myForm.append("title", title);
       myForm.append("id", user?._id);
       const res = await axios.post(
-        "http://localhost:5000/api/v1/post-video",
+        "https://linkedin-54mx.onrender.com/api/v1/post-video",
         myForm,
         {
           "Content-Type": "multipart/form-data",

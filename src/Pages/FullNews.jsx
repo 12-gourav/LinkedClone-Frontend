@@ -14,7 +14,7 @@ const FullNews = () => {
     try {
       setLoading(true);
       return axios
-        .get("http://localhost:5000/api/v1/news")
+        .get("https://linkedin-54mx.onrender.com/api/v1/news")
         .then((res) => {
           setResult(res.data.data);
           console.log(res);

@@ -37,7 +37,7 @@ const Post = ({ data }) => {
     const token = localStorage.getItem("token");
     await axios
       .post(
-        "http://localhost:5000/api/v1/post/likes",
+        "https://linkedin-54mx.onrender.com/api/v1/post/likes",
         { pid },
         { headers: { token: token } }
       )
@@ -105,8 +105,13 @@ const Post = ({ data }) => {
                   src={vdata.url}
                   autoPlay
                   controls
-                  className="max-auto"
-                  style={{ height: "250px", width: "100%" }}
+                  className="max-auto fish"
+                  style={{
+                    height: "200px",
+                    width: "100%",
+                    objectFit: "cover",
+                    borderRadius: "10px",
+                  }}
                 ></video>
               </SwiperSlide>
             ))}

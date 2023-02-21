@@ -13,7 +13,9 @@ const Posts = () => {
 
   const Fetchdata = async () => {
     setloading(true);
-    const data = await axios.get(`http://localhost:5000/api/v1/post/${count}`);
+    const data = await axios.get(
+      `https://linkedin-54mx.onrender.com/api/v1/post/${count}`
+    );
     setState((prev) => [...prev, ...data.data.data]);
     setloading(false);
   };

@@ -11,19 +11,19 @@
     align-items: center;
     width: 100%;
     padding: 1rem 0.5rem;
-    /* background-color: #fafafa; */
+    /* background-color:var(--green); */
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
     margin: 0.5rem 0;
     color: #000000;
 }
 .sidebar .box:hover {
-    background-color: #bbbbbb;
-    color: #000000;
+    background-color:var(--green);
+    color: #ffffff;
 }
 .sidebar .box.active{
-   background-color: #bbbbbb;
-    color: #000000;
+   background-color: var(--green);
+    color: #ffffff;
 }
 .sidebar .box .icon{
     height: 100%;

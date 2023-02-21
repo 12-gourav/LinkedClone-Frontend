@@ -18,6 +18,8 @@ export const userReducer = createReducer({
         }).addCase("logout",(state,action)=>{
             state.user=null;
             state.isvalid=false;
+        }).addCase("company",(state,action)=>{
+            state.company=action.payload;
         })
     
 });

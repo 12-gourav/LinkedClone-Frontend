@@ -279,15 +279,17 @@ const Second = ({ activeStep, handleBack, handleNext, steps }) => {
   );
 };
 const Third = ({ activeStep, handleBack, handleNext, steps }) => {
-  const { name, tag, dis, email, size } = useSelector((state) => state.first);
+  const { first } = useSelector((state) => state.user);
+  const { name, tag, dis, email, size } = first;
+  const { second } = useSelector((state) => state.user);
   const { contact1, contact2, city, country, address, pincode, Website } =
-    useSelector((state) => state.second);
+    second;
   const [img, setImg] = useState("");
   const [logo, setLogo] = useState("");
   const [banner, setBanner] = useState("");
   const [P, setP] = useState(0);
   const [loading, setLoading] = useState(false);
-
+  const token = localStorage.getItem("token");
   const handleSubmit = async () => {
     try {
       setLoading(true);
@@ -306,11 +308,15 @@ const Third = ({ activeStep, handleBack, handleNext, steps }) => {
       myForm.append("Website", Website);
       myForm.append("logo", logo);
       myForm.append("banner", banner);
-      myForm.append("id", "hinfukjhdasduaudad3123dlsk");
 
       const result = await axios.post(
-        "http://localhost:5000/api/v1/create-company",
+        "https://linkedin-54mx.onrender.com/api/v1/create-company",
         myForm,
+        {
+          headers: {
+            token: token,
+          },
+        },
         {
           onUploadProgress: (result) => {
             setP(Math.round((result.loaded / result.total) * 100));

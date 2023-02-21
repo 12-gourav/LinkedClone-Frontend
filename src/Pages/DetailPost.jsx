@@ -48,9 +48,12 @@ const DetailPost = () => {
   console.log(pid);
 
   const getData = async () => {
-    const res = await axios.post("http://localhost:5000/api/v1/post/detail", {
-      pid,
-    });
+    const res = await axios.post(
+      "https://linkedin-54mx.onrender.com/api/v1/post/detail",
+      {
+        pid,
+      }
+    );
     console.log(res);
     setLikeCount(res?.data.data.likes.length);
     setData(res?.data.data);
@@ -60,7 +63,7 @@ const DetailPost = () => {
     const token = localStorage.getItem("token");
     await axios
       .post(
-        "http://localhost:5000/api/v1/post/likes",
+        "https://linkedin-54mx.onrender.com/api/v1/post/likes",
         { pid },
         { headers: { token: token } }
       )
@@ -88,7 +91,7 @@ const DetailPost = () => {
       const name = user?.name;
       const url = user?.avatar.url;
       const result = await axios.post(
-        "http://localhost:5000/api/v1/post/comment",
+        "https://linkedin-54mx.onrender.com/api/v1/post/comment",
         { name, url, pid, comment },
         {
           headers: {
@@ -108,7 +111,7 @@ const DetailPost = () => {
       const token = localStorage.getItem("token");
       if (window.confirm("Are you sure you want Delete the comment")) {
         const result = await axios.post(
-          "http://localhost:5000/api/v1/post/comment/delete",
+          "https://linkedin-54mx.onrender.com/api/v1/post/comment/delete",
 
           { cid, pid },
           { headers: { token: token } }
@@ -405,17 +408,17 @@ const DetailPost = () => {
         <Link to="/" className="bnav">
           <i className="bx bx-home"></i>
         </Link>
-        <Link to="/" className="bnav">
+        <Link to="/connection" className="bnav">
           <i className="bx bx-user-plus"></i>
         </Link>
 
-        <Link to="/" className="pnav">
+        <Link to="/mobnav" className="pnav">
           <i className="bx bxs-plus-circle"></i>
         </Link>
-        <Link to="/" className="bnav">
+        <Link to="/notification" className="bnav">
           <i className="bx bxs-buildings"></i>
         </Link>
-        <Link to="/" className="bnav">
+        <Link to="/news" className="bnav">
           <i className="bx bx-news"></i>
         </Link>
       </div>

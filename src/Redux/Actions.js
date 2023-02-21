@@ -6,7 +6,7 @@ import {toast} from "react-toastify";
 export const createCompany = async(myForm,id)=>{
 
     try {
-        await axios.post("http://localhost:5000/api/v1/create-company",myForm,{ headers:{
+        await axios.post("https://linkedin-54mx.onrender.com/api/v1/create-company",myForm,{ headers:{
             'Content-Type': 'multipart/form-data',
     }
        });
@@ -19,7 +19,7 @@ export const createCompany = async(myForm,id)=>{
 
 export const RegisterUser = async(name,email,password)=>{
     try {
-        return await axios.post("http://localhost:5000/api/v1/register",{name,email,password});
+        return await axios.post("https://linkedin-54mx.onrender.com/api/v1/register",{name,email,password});
     } catch (error) {
         toast.error(error.response.data.message);
     }
@@ -27,7 +27,7 @@ export const RegisterUser = async(name,email,password)=>{
 
 export const LoginUser = async(email,password)=>{
     try {
-         return await axios.post("http://localhost:5000/api/v1/login",{email,password});
+         return await axios.post("https://linkedin-54mx.onrender.com/api/v1/login",{email,password});
     } catch (error) {
         toast.error(error.response.data.message);
     }
@@ -35,7 +35,7 @@ export const LoginUser = async(email,password)=>{
 
 export const LoadUser = async(token)=>{
     try {
-       return await axios.post("http://localhost:5000/api/v1/load",{},{headers:{
+       return await axios.post("https://linkedin-54mx.onrender.com/api/v1/load",{},{headers:{
             token:token
         }});
     } catch (error) {
@@ -46,7 +46,7 @@ export const LoadUser = async(token)=>{
 
 export const LogoutUser = async(token)=>{
     try {
-       return await axios.post("http://localhost:5000/api/v1/logout",{},{headers:{
+       return await axios.post("https://linkedin-54mx.onrender.com/api/v1/logout",{},{headers:{
             token:token
         }});
     } catch (error) {

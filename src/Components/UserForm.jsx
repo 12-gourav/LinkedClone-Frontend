@@ -344,7 +344,7 @@ const Third = ({ activeStep, handleBack, handleNext, steps }) => {
       myForm.append("id", user?._id);
 
       const result = await axios.post(
-        "http://localhost:5000/api/v1/user-info",
+        "https://linkedin-54mx.onrender.com/api/v1/user-info",
         myForm,
         {
           onUploadProgress: (result) => {

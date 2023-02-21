@@ -16,11 +16,14 @@ const News = () => {
         return toast.error("All fields are required");
       }
       setLoading(true);
-      const data = await axios.post("http://localhost:5000/api/v1/news", {
-        news,
-        title,
-        imgLink,
-      });
+      const data = await axios.post(
+        "https://linkedin-54mx.onrender.com/api/v1/news",
+        {
+          news,
+          title,
+          imgLink,
+        }
+      );
       if (data.data) {
         toast.success("News post saved successfully");
         setImgLink("");
@@ -66,7 +69,7 @@ const News = () => {
           onClick={handleSubmit}
           style={{ color: "#fff" }}
         >
-          {loading ? <CircularProgress style={{color:"#fff"}} /> : "Submit"}
+          {loading ? <CircularProgress style={{ color: "#fff" }} /> : "Submit"}
         </button>
       </div>
     </section>

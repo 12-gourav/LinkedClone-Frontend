@@ -8,6 +8,7 @@ import "react-toastify/dist/ReactToastify.css";
 import img from "./assets/l2.gif";
 import CircularProgress from "@mui/material/CircularProgress";
 import MobileUpload from "./Pages/MobileUpload";
+import DisplayCompany from "./Pages/DisplayCompany";
 
 const Home = lazy(() => import("./Pages/Home"));
 const Profile = lazy(() => import("./Pages/Profile"));
@@ -25,7 +26,9 @@ const FullNews = lazy(() => import("./Pages/FullNews"));
 const Connection = lazy(() => import("./Pages/Connection"));
 const Search = lazy(() => import("./Pages/Search"));
 const Verify = lazy(() => import("./Pages/verify"));
+import Message from "./Pages/Message";
 
+import Notiification from "./Pages/Notiification";
 const App = () => {
   const dispatch = useDispatch();
 
@@ -91,6 +94,7 @@ const App = () => {
             }
           />
           <Route path="/host" element={<HomeSet />} />
+          <Route path="/company" element={<DisplayCompany />} />
           <Route
             path="/user"
             element={
@@ -135,6 +139,8 @@ const App = () => {
               </UserRoute>
             }
           />
+          <Route path="/notification" element={<Notiification />} />
+          <Route path="/messages" element={<Message />} />
         </Routes>
       </Suspense>
     </div>
