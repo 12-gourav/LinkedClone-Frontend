@@ -115,22 +115,6 @@ const Post = ({ data }) => {
                 ></video>
               </SwiperSlide>
             ))}
-          <SwiperSlide>
-            {" "}
-            <img src={o1} alt="" className=" max-auto" />
-          </SwiperSlide>
-          <SwiperSlide>
-            {" "}
-            <img src={o1} alt="" className=" max-auto" />
-          </SwiperSlide>
-          <SwiperSlide>
-            {" "}
-            <img src={o1} alt="" className=" max-auto" />
-          </SwiperSlide>
-          <SwiperSlide>
-            {" "}
-            <img src={o1} alt="" className=" max-auto" />
-          </SwiperSlide>
         </Swiper>
 
         <div className="flex flex-row w-[80%] mx-auto justify-between">
@@ -160,11 +144,11 @@ const Post = ({ data }) => {
               src={Share}
               className="w-[25px] h-[25px] mr-2 cursor-pointer "
             />
-            <span>234</span>
+            <span>0</span>
           </div>
           <div className="flex flex-row justify-center items-center cursor-pointer ">
             {/* <RemoveRedEyeOutlined /> */}
-            <span>234</span>
+            <span>0</span>
           </div>
         </div>
       </div>

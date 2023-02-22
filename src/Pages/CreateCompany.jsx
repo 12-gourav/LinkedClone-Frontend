@@ -310,7 +310,7 @@ const Third = ({ activeStep, handleBack, handleNext, steps }) => {
       myForm.append("banner", banner);
 
       const result = await axios.post(
-        "https://linkedin-54mx.onrender.com/api/v1/create-company",
+        "http://localhost:5000/api/v1/create-company",
         myForm,
         {
           headers: {
@@ -334,7 +334,7 @@ const Third = ({ activeStep, handleBack, handleNext, steps }) => {
         toast.error("Something went Wrong");
       }
     } catch (error) {
-      toast.error("Something went wrong", error.response.data.message);
+      toast.error("Something went wrong", error.response.data.message.errors);
       console.log(error);
       setLoading(false);
     }

@@ -8,7 +8,7 @@ import SkeltonCard from "./SkeltonCard";
 
 const Posts = () => {
   const [state, setState] = useState([]);
-  const [count, setCount] = useState(2);
+  const [count, setCount] = useState(10);
   const [loading, setloading] = useState(false);
 
   const Fetchdata = async () => {

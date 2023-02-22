@@ -31,20 +31,18 @@ import Message from "./Pages/Message";
 import Notiification from "./Pages/Notiification";
 const App = () => {
   const dispatch = useDispatch();
-
+  const unSubscribe = () => {
+    const token = localStorage.getItem("token");
+    LoadUser(token)
+      .then((res) => {
+        if (res?.data.data) dispatch({ type: "load", payload: res?.data.data });
+      })
+      .catch((err) => console.log(err));
+  };
   useEffect(() => {
-    const unSubscribe = () => {
-      const token = localStorage.getItem("token");
-      LoadUser(token)
-        .then((res) => {
-          if (res?.data.data)
-            dispatch({ type: "load", payload: res?.data.data });
-        })
-        .catch((err) => console.log(err));
-    };
+    unSubscribe();
     ////cleanup function
-
-    return () => unSubscribe();
+    // return () => unSubscribe();
   }, [dispatch]);
 
   return (
