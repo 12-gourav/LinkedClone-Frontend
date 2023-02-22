@@ -310,7 +310,7 @@ const Third = ({ activeStep, handleBack, handleNext, steps }) => {
       myForm.append("banner", banner);
 
       const result = await axios.post(
-        "http://localhost:5000/api/v1/create-company",
+        "https://linkedin-54mx.onrender.com/api/v1/create-company",
         myForm,
         {
           headers: {
